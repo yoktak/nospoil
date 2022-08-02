@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('body', 200);
             $table->integer('users_id')->unsigned();
             $table->integer('comics_id')->unsigned();
-            $table->timestamps();
+            $table->timestamps('updated_at');
         });
     }
 
