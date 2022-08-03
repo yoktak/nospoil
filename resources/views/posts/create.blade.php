@@ -8,7 +8,9 @@
         
     </head>
     <body>
-        <h1>漫画最新情報投稿サイト</h1>
-        <p></p>
+        <h1>語り部屋</h1>
+        <form action="/posts" method="POST">
+            {{ csrf_field() }}
+            
     </body>
 </html>
