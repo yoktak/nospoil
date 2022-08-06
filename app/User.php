@@ -36,4 +36,35 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    // usersテーブルとpostsテーブルを結合
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
+    
+    // usersテーブルとcomicsテーブルを結合
+    public function comics()
+    {
+        return $this->belongsToMany('App\Comic');
+    }
+    
+    // usersテーブルとcommentsテーブルを結合
+    public function comments()
+    {
+        return $this->belongsToMany('App\Comment');
+    }
+    
+    // usersテーブルとfollowテーブルを結合
+    // フォロワー>フォロー
+    public function follows()
+    {
+        return $this->belongsToMany('App\User','follow','following_id','followed_id');
+    }
+    
+    // フォロー>フォロワー
+    public function followed()
+    {
+        return $this->belongsToMany('App\User','follow','followed_id','following_id');
+    }
 }

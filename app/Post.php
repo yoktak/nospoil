@@ -10,4 +10,10 @@ class Post extends Model
     {
         return $this->orderBy('updated_at', 'DESC')->get();
     }
+    
+    // usersテーブルとpostsテーブルを結合
+    public function users()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
