@@ -13,9 +13,13 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'name_users'=>'user1',
-                ''
+                'name'=>'Takumi Yokochi',
+                'email'=>'yokocchibb@yahoo.co.jp',
+                'password'=>'Very10tt'
             ]
             ]);
+        
+        
+        $users = factory(App\User::class, 9)->create();
     }
 }

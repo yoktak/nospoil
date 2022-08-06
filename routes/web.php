@@ -11,9 +11,10 @@
 |
 */
 
-Route::group(['middleware' => ['auth']], function(){
+// Route::group(['middleware' => ['auth']], function(){
     Route::get('/', 'PostController@index');
-});
+    Route::get('/user','UserController@index');
+// });
 
 Auth::routes();
 

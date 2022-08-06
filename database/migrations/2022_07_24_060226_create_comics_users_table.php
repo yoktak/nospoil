@@ -15,7 +15,8 @@ class CreateComicsUsersTable extends Migration
     {
         Schema::create('comics_users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->unsignedInteger('users_id');
+            $table->unsignedInteger('comics_id');
         });
     }
 

@@ -13,34 +13,34 @@ class ComicsTableSeeder extends Seeder
     {
         DB::table('comics')->insert([
             [
-                'name_comics'=>'comic1',
-                'name_author'=>'author1',
-                'name_magazine'=>'magazineA'
+                'title'=>'ワンピース',
+                'author'=>'尾田栄一郎',
+                'magazine'=>'ジャンプ'
             ],
             [
-                'name_comics'=>'comic2',
-                'name_author'=>'author2',
-                'name_magazine'=>'magazineA'
+                'title'=>'ナルト',
+                'author'=>'岸本斉史',
+                'magazine'=>'ジャンプ'
             ],
             [
-                'name_comics'=>'comic3',
-                'name_author'=>'author3',
-                'name_magazine'=>'magazineB'
+                'title'=>'僕のヒーローアカデミア',
+                'author'=>'堀越耕平',
+                'magazine'=>'ジャンプ'
             ],
             [
-                'name_comics'=>'comic4',
-                'name_author'=>'author4',
-                'name_magazine'=>'magazineB'
+                'title'=>'名探偵コナン',
+                'author'=>'青山剛昌',
+                'magazine'=>'サンデー'
             ],
             [
-                'name_comics'=>'comic5',
-                'name_author'=>'author5',
-                'name_magazine'=>'magazineC'
+                'title'=>'東京リベンジャーズ',
+                'author'=>'和久井健',
+                'magazine'=>'マガジン'
             ],
             [
-                'name_comics'=>'comic6',
-                'name_author'=>'author6',
-                'name_magazine'=>'magazineC'
+                'title'=>'ブルーロック',
+                'author'=>'金城宗幸',
+                'magazine'=>'マガジン'
             ],
         ]);
     }

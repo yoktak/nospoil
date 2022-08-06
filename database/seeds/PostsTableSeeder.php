@@ -13,16 +13,24 @@ class PostsTableSeeder extends Seeder
     {
         DB::table('posts')->insert([
             [
-                'body'=>'Amazing'
+                'body'=>'Amazing',
+                'users_id'=>1,
+                'comics_id'=>1
             ],
             [
-                'body'=>'Good'
+                'body'=>'Good',
+                'users_id'=>2,
+                'comics_id'=>1
             ],
             [
-                'body'=>'Fantastic'
+                'body'=>'Fantastic',
+                'users_id'=>3,
+                'comics_id'=>1
             ],
             [
-                'body'=>'Nice'
+                'body'=>'Nice',
+                'users_id'=>4,
+                'comics_id'=>2
             ]
         ]);
     }
