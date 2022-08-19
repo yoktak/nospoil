@@ -15,6 +15,7 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table='users';
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -46,7 +47,8 @@ class User extends Authenticatable
     // usersテーブルとcomicsテーブルを結合
     public function comics()
     {
-        return $this->belongsToMany('App\Comic');
+        return $this->belongsToMany('App\Comic')
+                    ->withPivot('type','episode');
     }
     
     // usersテーブルとcommentsテーブルを結合
@@ -67,4 +69,5 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\User','follow','followed_id','following_id');
     }
+    
 }

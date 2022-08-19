@@ -13,24 +13,67 @@ class PostsTableSeeder extends Seeder
     {
         DB::table('posts')->insert([
             [
-                'body'=>'Amazing',
-                'users_id'=>1,
-                'comics_id'=>1
+                'body'=>'ギア５強すぎ',
+                'user_id'=>1,
+                'comic_id'=>1,
+                'type'=>1,
+                'episode'=>1045
             ],
             [
-                'body'=>'Good',
-                'users_id'=>2,
-                'comics_id'=>1
+                'body'=>'工藤新一がコナンってこと？',
+                'user_id'=>2,
+                'comic_id'=>4,
+                'type'=>0,
+                'episode'=>1
             ],
             [
-                'body'=>'Fantastic',
-                'users_id'=>3,
-                'comics_id'=>1
+                'body'=>'エネルの天敵ルフィだけやな',
+                'user_id'=>3,
+                'comic_id'=>1,
+                'type'=>0,
+                'episode'=>30
             ],
             [
-                'body'=>'Nice',
-                'users_id'=>4,
-                'comics_id'=>2
+                'body'=>'火影になった！',
+                'user_id'=>4,
+                'comic_id'=>2,
+                'type'=>0,
+                'episode'=>72
+            ],
+            [
+                'body'=>'犯人は毛利小五郎',
+                'user_id'=>5,
+                'comic_id'=>4,
+                'type'=>1,
+                'episode'=>700
+            ],
+            [
+                'body'=>'いずくって読んだ！',
+                'user_id'=>6,
+                'comic_id'=>3,
+                'type'=>1,
+                'episode'=>322
+            ],
+            [
+                'body'=>'もともとデクにも個性ある説',
+                'user_id'=>7,
+                'comic_id'=>3,
+                'type'=>0,
+                'episode'=>10
+            ],
+            [
+                'body'=>'ガイ先生ってこんな強いの、カカシより強いんじゃね',
+                'user_id'=>8,
+                'comic_id'=>2,
+                'type'=>1,
+                'episode'=>640
+            ],
+            [
+                'body'=>'チョッパーかわいい、ペット枠いいね',
+                'user_id'=>2,
+                'comic_id'=>1,
+                'type'=>0,
+                'episode'=>17
             ]
         ]);
     }
