@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateComicsUsersTable extends Migration
+class CreateLikesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateComicsUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('comics_users', function (Blueprint $table) {
+        Schema::create('likes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('users_id');
-            $table->unsignedInteger('comics_id');
+            $table->integer('user_id');
+            $table->integer('post_id');
+            $table->timestamps();
+            
+            $table->unique(['user_id', 'post_id']);
         });
     }
 
@@ -27,6 +30,6 @@ class CreateComicsUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comics_users');
+        Schema::dropIfExists('likes');
     }
 }

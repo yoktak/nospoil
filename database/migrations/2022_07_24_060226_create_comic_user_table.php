@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommentsUsersTable extends Migration
+class CreateComicUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class CreateCommentsUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments_users', function (Blueprint $table) {
+        Schema::create('comic_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('users_id');
-            $table->integer('comments_id');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('comic_id');
+            $table->integer('type'); // 0:単行本, 1:雑誌
+            $table->string('episode');
             $table->timestamps();
+            
+            $table->unique(['user_id','comic_id','type']);
         });
     }
 
@@ -28,6 +32,6 @@ class CreateCommentsUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments_users');
+        Schema::dropIfExists('comic_user');
     }
 }

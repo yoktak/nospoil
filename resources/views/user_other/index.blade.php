@@ -11,22 +11,32 @@
         
     </head>
     <body>
-        <h2>{{Auth::user()->name}}</h2>
+        <h2>{{ $user->name }}</h2>
         <div class='profile'>
             <p>プロフィール</p>
-            <h4>{{ Auth::user()->profile }}</h4>
+            <h4>{{ $user->profile }}</h4>
         </div>
         <div class='follow'>
-            <a class='following' href='/following_list'>[フォロー]</a>
-            <a class='followed' href='/followed_list'>[フォロワー]</a>
+            @if(!isset($follow))
+                <form action="/follow" method="POST">
+                {{ csrf_field() }}
+                    <input type='hidden' name='followed_id' value='{{ $user->id }}' />
+                    <input type='submit' value='フォローする'>
+                </form>
+            @else
+                <form action="/remove" method="POST">
+                {{ csrf_field() }}
+                @method('PUT')
+                    <input type='hidden' name='followed_id' value='{{ $user->id }}' />
+                    <input type='submit' value='フォロー解除'>
+                </form>
+            @endif
         </div>
-        <div class='edit'>
-            <a href='user/edit_profile'>[プロフィール編集]</a>
-            <a href='user/edit_comic'>[漫画追加/更新]</a>
-            <a href='/posts'>[投稿一覧]</a>
-        </div>
+
+        <a href='/posts'>[back]</a>
+        
         <div class='comics'>
-            @foreach(auth()->user()->comics as $comic)
+            @foreach($user->comics as $comic)
             <div class='partition'>---------------------------</div>
             <div class='name'>
                 <p>好きな漫画</p>
