@@ -17,7 +17,7 @@ class User extends Authenticatable
      */
     protected $table='users';
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'profile', 'email', 'password',
     ];
 
     /**
@@ -48,20 +48,22 @@ class User extends Authenticatable
     public function comics()
     {
         return $this->belongsToMany('App\Comic')
+                    ->using('App\ComicUser')
                     ->withPivot('type','episode');
     }
     
     // usersテーブルとcommentsテーブルを結合
     public function comments()
     {
-        return $this->belongsToMany('App\Comment');
+        return $this->hasMany('App\Comment');
     }
     
     // usersテーブルとfollowテーブルを結合
     // フォロワー>フォロー
     public function follows()
     {
-        return $this->belongsToMany('App\User','follow','following_id','followed_id');
+        return $this->belongsToMany('App\User','follow','following_id','followed_id')
+                    ->using('App\Follow');
     }
     
     // フォロー>フォロワー
@@ -70,4 +72,29 @@ class User extends Authenticatable
         return $this->belongsToMany('App\User','follow','followed_id','following_id');
     }
     
+    public function filters()
+    {
+        return $this->hasMany('App\ComicUser');
+    }
+    
+    //いいね機能
+    //多対多のリレーション
+    public function likes()
+    {
+        return $this->belongsToMany('App\Post','likes','user_id','post_id');
+    }
+    // //この投稿に対して既にいいねしてあるか判別
+    // public function islike($postId)
+    // {
+    //     return $this->likes()->where('post_id',$postId)->exists();
+    // }
+    // //islike()の有無で分岐
+    // public function like($postId)
+    // {
+    //   if($this->isLike($postId)){
+    //     $this->likes()->detach($postId);
+    //   } else {
+    //     $this->likes()->attach($postId);
+    //   }
+    // }
 }

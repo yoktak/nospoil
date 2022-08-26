@@ -8,7 +8,7 @@
         
     </head>
     <body>
-        <form action="/" method="POST">
+        <form action="/posts" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
             <div class='username'>
                 <p name='post[user_id]' value="{{ Auth::user()->id }}">{{Auth::user()->name}}</p>
@@ -16,6 +16,9 @@
             <div class='body'>
                 <textarea name='post[body]'></textarea>
             </div>
+            <div class='image'>
+                <p>画像</p>
+                <input type='file' name='image'>
             </div>
             <div class='comic'>
                 <p>投稿内容が関係する漫画を選択</p>
@@ -40,5 +43,6 @@
             </div>
             <input type="submit" value="store"/>
         </form>
+        <a href='/posts'>[back]</a>
     </body>
 </html>

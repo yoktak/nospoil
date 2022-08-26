@@ -10,7 +10,7 @@ class Post extends Model
 {
     protected $table='posts';
     protected $fillable = [
-        'user_id','comic_id','body','type','episode'
+        'user_id', 'image_path', 'comic_id','body','type','episode'
     ];
     
     
@@ -28,5 +28,15 @@ class Post extends Model
     public function comic()
     {
         return $this->belongsTo('App\Comic');
+    }
+    
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+    
+    public function likes()
+    {
+        return $this->belongsToMany('App\User', 'likes', 'post_id', 'user_id');
     }
 }

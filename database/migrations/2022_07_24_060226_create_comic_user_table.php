@@ -14,10 +14,12 @@ class CreateComicUserTable extends Migration
     public function up()
     {
         Schema::create('comic_user', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('comic_id');
             $table->integer('type'); // 0:単行本, 1:雑誌
             $table->string('episode');
+            $table->timestamps();
             
             $table->unique(['user_id','comic_id','type']);
         });

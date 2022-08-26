@@ -16,7 +16,7 @@
             <a href='/user'>[MyPage]</a>
         </div>
         <div class='create'>
-            <a href='create'>[新規投稿]</a>
+            <a href='/posts/create'>[新規投稿]</a>
         </div>
         <div class='posts'>
             @foreach ($posts as $post)
@@ -26,8 +26,17 @@
                         $comic->pivot->episode>=$post->episode)
                         <div class='partition'>---------------------------</div>
                         <div class='post'>
-                            <h4 class='username'>{{$post->user->name}}</h4>
-                            <p class='body'>{{ $post->body }}</p>
+                            <a href='/user/{{ $post->user->id }}'>
+                                <h4 class='username'>{{$post->user->name}}</h4>
+                            </a>
+                            <a href="/posts/{{ $post->id }}">
+                                <p class='body'>{{ $post->body }}</p>
+                            </a>
+                            <div class='img'>
+                                @if(isset($post->image_path))
+                                  <img src="{{ $post->image_path }}">
+                                @endif
+                            </div>
                             <p class='comic'>{{ $post->comic->title }}</p>
                             <p class='type'>
                                 @if($post->type===0)
@@ -43,6 +52,19 @@
                                     話
                                 @endif
                             </p> 
+                        </div>
+                        <div class='likes'>
+                            @if($post->likes()->where('user_id', Auth::id())->where('post_id', $post->id)->exists())
+                                <form action = "/posts/unlike/{{ $post->id }}" method='POST'>
+                                @csrf
+                                @method('PUT')
+                            @else
+                                <form action = "/posts/like/{{ $post->id }}" method="POST">
+                                @csrf
+                            @endif
+                                    <input type='hidden' name='post_id' value='{{ $post->id }}'/>
+                                    <input type='submit' name='like' value='いいね{{ $post->likes->count() }}'/>
+                                </form>
                         </div>
                     @endif
                 @endforeach

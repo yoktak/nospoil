@@ -74,6 +74,13 @@ class PostsTableSeeder extends Seeder
                 'comic_id'=>1,
                 'type'=>0,
                 'episode'=>17
+            ],
+            [
+                'body'=>'やっぱニカだったね、考察当たった！',
+                'user_id'=>2,
+                'comic_id'=>1,
+                'type'=>1,
+                'episode'=>1044
             ]
         ]);
     }
