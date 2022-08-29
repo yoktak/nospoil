@@ -22,7 +22,10 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/posts', 'PostController@index');
     Route::get('/posts/create','PostController@create');
     Route::post('/posts', 'PostController@store');
+    Route::get('/posts/{post}/edit', 'PostController@edit');
+    Route::put('/posts/{post}', 'PostController@update');
     Route::get('/posts/{post}', 'PostController@show');
+    Route::post('/delete/{post}','PostController@delete');
     
     
     // ユーザーページ編集機能
@@ -48,8 +51,6 @@ Route::group(['middleware' => ['auth']], function(){
     Route::put('/unlike/{post}', 'LikeController@remove_show');
     Route::post('/posts/like/{post}','LikeController@store_posts');
     Route::put('/posts/unlike/{post}','LikeController@remove_posts');
-    
-    Route::delete('/user','UserController@destroy');
 });
 
 Auth::routes();

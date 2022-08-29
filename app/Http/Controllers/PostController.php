@@ -59,4 +59,39 @@ class PostController extends Controller
         ]);
     }
     
+    public function edit(Post $post, User $user, Comic $comic)
+    {
+        
+        if (Auth::id() == $post->user->id){
+            return view('posts/edit')->with([
+                'post' => $post->first(),
+                'comics' => $comic->get()
+                ]);   
+        }
+       
+    }
+    
+    public function update(Request $request, Post $post)
+    {
+        $input = $request['post'];
+        
+        $input['user_id'] = Auth::id();
+        
+        $input_image = $request->file('image');
+        if(isset($input_image))
+        {
+            $path = Storage::disk('s3')->putFile('photos', $input_image, 'public');
+            $input['image_path'] = Storage::disk('s3')->url($path);
+        }
+        $post->fill($input)->save();
+        
+        return redirect('/posts/' . $post->id);
+    }
+    
+    public function delete(Post $post)
+    {
+        $delete_id = Post::find($post->id);
+        $delete_id->delete();
+        return redirect('/posts');
+    }
 }
