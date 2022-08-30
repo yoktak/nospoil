@@ -1,0 +1,15 @@
+.pagename h2 {
+    padding: 10px;
+}
+
+h3 {
+    
+}
+
+form {
+    padding: 30px;
+    border: solid;
+    border-color: #EEEEEE;
+    border-radius: 20px;
+    background-color: #EEEEEE;
+}

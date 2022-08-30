@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.sidebar')
 
 @section('content')
 <!DOCTYPE html>
@@ -11,11 +11,16 @@
         
     </head>
     <body>
-        @foreach(auth()->user()->followed as $followed)
+        <div class='followed'>
+            <h1>Followed</h1>
+        </div>
+        <div class='lists'>
+            @foreach(auth()->user()->followed as $followed)
             <li>
                 <a href='/user/{{ $followed->id }}'>{{ $followed->name }}</a>
             </li>
         @endforeach
+        </div>
     </body>
 </html>
 @endsection

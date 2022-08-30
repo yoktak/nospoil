@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.sidebar')
 
 @section('content')
 <!DOCTYPE html>
@@ -6,20 +6,24 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ asset('/CSS/user/edit_profile.css') }}">
 
         <title>プロフィール編集画面</title>
         
     </head>
     <body>
+        <div class='pagename'>
+            <h2><i class="bi bi-arrow-left" onclick="location.href='/user'"></i>　Update Profile</h2>
+        </div>
         <form action="/user/edit_profile" method="POST">
             @csrf
             @method('PUT')
             <div class='name'>
-                <h2>ユーザーネーム</h2>
+                <h3>User Name</h3>
                 <input type="text" name="user[name]" value="{{ Auth::user()->name }}" placehplder="username" />
             </div>
             <div class='profile'>
-                <h2>プロフィール</h2>
+                <h3>Who are you doing?</h3>
                 <textarea name="user[profile]" placeholder="ご自由にお書きください">{{ Auth::user()->profile }}</textarea>
             </div>
             
