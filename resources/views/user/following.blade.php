@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.sidebar')
 
 @section('content')
 <!DOCTYPE html>
@@ -11,8 +11,8 @@
         
     </head>
     <body>
-        <div class='mypage'>
-            <a href='/user'>[MyPage]</a>
+        <div class='following'>
+            <h1>Following</h1>
         </div>
         <div class='lists'>
             @foreach(auth()->user()->follows as $follow)

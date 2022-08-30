@@ -1,0 +1,33 @@
+.post {
+    border: solid;
+    border-color: #EEEEEE;
+    padding: 10px;
+}
+
+.username {
+    color: black;
+}
+
+.body {
+    color: black;
+    padding: 10px;
+}
+
+.img img {
+    width: 500px;
+    padding: 10px;
+}
+.px-2 {
+    background-color: #EEEEEE;
+    border: solid;
+    border-color: #EEEEEE;
+    color: #666666;
+    border-radius: 2rem;
+}
+
+button {
+    background-color: white;
+    border: none;
+    padding-top: 10px;
+}
+

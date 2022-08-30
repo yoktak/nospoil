@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.sidebar')
 
 @section('content')
 <!DOCTYPE html>
@@ -6,54 +6,54 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
         <link rel="stylesheet" href="{{ asset('/CSS/posts/index.css') }}">
         <title>投稿一覧ページ</title>
         
     </head>
     <body>
-        <h1>語り部屋</h1>
-        <div class='mypage'>
-            <a href='/user'>[MyPage]</a>
-        </div>
-        <div class='create'>
-            <a href='/posts/create'>[新規投稿]</a>
-        </div>
         <div class='posts'>
             @foreach ($posts as $post)
                 @foreach (auth()->user()->comics as $comic)
                     @if($comic->id===$post->comic->id &&
                         $comic->pivot->type===$post->type &&
                         $comic->pivot->episode>=$post->episode)
-                        <div class='partition'>---------------------------</div>
                         <div class='post'>
                             <a href='/user/{{ $post->user->id }}'>
-                                <h4 class='username'>{{$post->user->name}}</h4>
+                                <p class='username'>{{$post->user->name}}</p>
                             </a>
                             <a href="/posts/{{ $post->id }}">
-                                <p class='body'>{{ $post->body }}</p>
+                                <h4 class='body'>{{ $post->body }}</h4>
                             </a>
                             <div class='img'>
                                 @if(isset($post->image_path))
                                   <img src="{{ $post->image_path }}">
                                 @endif
                             </div>
-                            <p class='comic'>{{ $post->comic->title }}</p>
-                            <p class='type'>
-                                @if($post->type===0)
-                                    単行本
-                                @else
-                                    雑誌
-                                @endif
-                            </p>
-                            <p class='episode'>{{ $post->episode }}
-                                @if($post->type===0)
-                                    巻
-                                @else
-                                    話
-                                @endif
-                            </p> 
-                        </div>
-                        <div class='likes'>
+                            <div class='comic'>
+                                <div class="d-flex flex-row">
+                                    <div class='px-2'>
+                                        {{ $post->comic->title }}
+                                    </div>
+                                    <div class='px-2'>
+                                        @if($post->type===0)
+                                            単行本
+                                        @else
+                                            雑誌
+                                        @endif
+                                    </div>
+                                    <div class='px-2'>
+                                        {{ $post->episode }}
+                                        @if($post->type===0)
+                                            巻
+                                        @else
+                                            話
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='likes'>
                             @if($post->likes()->where('user_id', Auth::id())->where('post_id', $post->id)->exists())
                                 <form action = "/posts/unlike/{{ $post->id }}" method='POST'>
                                 @csrf
@@ -63,8 +63,12 @@
                                 @csrf
                             @endif
                                     <input type='hidden' name='post_id' value='{{ $post->id }}'/>
-                                    <input type='submit' name='like' value='いいね{{ $post->likes->count() }}'/>
+                                    <button type='submit' name='like' value='{{ $post->likes->count() }}'>
+                                        <i class="bi bi-heart" ></i>
+                                        <h11>{{ $post->likes->count() }}</h11>
+                                    </button>
                                 </form>
+                            </div>
                         </div>
                     @endif
                 @endforeach

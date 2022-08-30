@@ -1,0 +1,19 @@
+.col-3 {
+    background-color: #DDDDDD;
+}
+
+.sidebar_fixed {
+    position: sticky;
+    padding-left: 30px;
+}
+
+.col-3 i {
+    color: black;
+    font-size: 30px;
+    padding: 0px;
+}
+
+.m-ms-5 {
+    padding: 20px;
+    
+}

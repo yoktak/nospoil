@@ -1,18 +1,106 @@
-/*body {*/
-/*    text-align: center;*/
-/*}*/
+.container {
+    margin-right:0;
+    margin-left:0;
+}
 
-/*.comic {*/
-/*    list-style-type: none;*/
-/*    display: flex;*/
-/*}*/
+.edit_profile {
+    text-align: right;
+}
+.edit_profile button {
+    font-weight: normal;
+    margin-top: 10px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: solid;
+    border-radius: 25px;
+    border-color: #EEEEEE;
+    background-color: #EEEEEE;
+}
 
-/*p,h3 {*/
-    border: solid 1px;          /* 枠線指定 */
-/*}*/
- 
-/*table {*/
-    border-collapse:  collapse; /* セルの線を重ねる */
-    width:  100%;               /* 幅指定 */
-    table-layout: fixed;        /* セルの幅計算指定 */
-/*}*/
+.following, .followed {
+    color: black;
+    font-weight: bold;
+    margin-left: 10px;
+    text-align: center;
+    padding-top: 20px;
+}
+.following p, .followed p {
+    font-weight: lighter;
+}
+
+.nospoilcomics h4 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.edit_comic {
+    margin-left: auto;
+}
+.edit_comic button {
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: solid;
+    border-radius: 25px;
+    border-color: #EEEEEE;
+    background-color: #EEEEEE;
+}
+
+.myposts h5, .likeposts h5 {
+    text-align: center;
+}
+
+.posts {
+    background-color: #EEEEEE;
+    border-top: solid;
+    border-color: #EEEEEE;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.post {
+    background-color: white;
+    border: solid;
+    border-color: #EEEEEE;
+    padding: 10px;
+}
+
+.username {
+    color: black;
+}
+
+.body {
+    color: black;
+    padding: 10px;
+}
+
+.img img {
+    width: 300px;
+    padding: 10px;
+}
+
+.px-2 {
+    background-color: #EEEEEE;
+    border: solid;
+    border-color: #EEEEEE;
+    color: #666666;
+    border-radius: 2rem;
+}
+
+.likes button {
+    background-color: white;
+    border: none;
+    padding-top: 10px;
+}
+
+.col-6 {
+    padding-top: 20px;
+    border-right: solid;
+    border-color: white;
+}

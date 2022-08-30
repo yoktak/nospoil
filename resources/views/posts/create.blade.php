@@ -1,3 +1,6 @@
+@extends('layouts.sidebar')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -33,8 +36,8 @@
             </div>
             <div class='type'>
                 <p>種類選択</p>
-                <label><input type="radio"  name='post[type]' id="type" value='0'>単行本</label>
-                <label><input type="radio"  name='post[type]' id="type" value='1'>週刊誌</label>
+                <label><input type="radio"  name='post[type]' id="type" value='0'> 単行本</label>
+                <label><input type="radio"  name='post[type]' id="type" value='1'> 雑誌</label>
             </div>
             <br>
             <div class='episode'>
@@ -46,3 +49,4 @@
         <a href='/posts'>[back]</a>
     </body>
 </html>
+@endsection

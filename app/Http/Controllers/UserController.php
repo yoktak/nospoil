@@ -14,9 +14,14 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function index(User $user)
+    public function index(User $user, Post $post)
     {
-        return view('user/index');
+        $user = Auth::user();
+        $likepost = $user->likes;
+        return view('user/index')->with([
+            'posts' => $post->get(),
+            'likeposts' => $likepost
+            ]);
     }
     
     
