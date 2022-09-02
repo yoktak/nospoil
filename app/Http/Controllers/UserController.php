@@ -83,7 +83,6 @@ class UserController extends Controller
                         ->where('followed_id', $user->id)->first();
         
         return view('user_other/index')->with([
-            'post' => $post,
             'user' => $user,
             'follow' => $follow
             ]);
