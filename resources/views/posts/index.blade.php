@@ -53,21 +53,29 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class='likes'>
-                            @if($post->likes()->where('user_id', Auth::id())->where('post_id', $post->id)->exists())
-                                <form action = "/posts/unlike/{{ $post->id }}" method='POST'>
-                                @csrf
-                                @method('PUT')
-                            @else
-                                <form action = "/posts/like/{{ $post->id }}" method="POST">
-                                @csrf
-                            @endif
-                                    <input type='hidden' name='post_id' value='{{ $post->id }}'/>
-                                    <button type='submit' name='like' value='{{ $post->likes->count() }}'>
-                                        <i class="bi bi-heart" ></i>
-                                        <h11>{{ $post->likes->count() }}</h11>
+                            <div class='d-flex flex-row'>
+                                <div class='create_comment'>
+                                    <button onclick="location.href='/posts/{{ $post->id }}/comments/create'">
+                                        <i class="bi bi-chat-square"></i>
+                                        <h11>{{ $post->comments->count() }}</h11>
                                     </button>
-                                </form>
+                                </div>
+                                <div class='likes'>
+                                @if($post->likes()->where('user_id', Auth::id())->where('post_id', $post->id)->exists())
+                                    <form action = "/posts/unlike/{{ $post->id }}" method='POST'>
+                                    @csrf
+                                    @method('PUT')
+                                @else
+                                    <form action = "/posts/like/{{ $post->id }}" method="POST">
+                                    @csrf
+                                @endif
+                                        <input type='hidden' name='post_id' value='{{ $post->id }}'/>
+                                        <button type='submit' name='like' value='{{ $post->likes->count() }}'>
+                                            <i class="bi bi-heart" ></i>
+                                            <h11>{{ $post->likes->count() }}</h11>
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     @endif

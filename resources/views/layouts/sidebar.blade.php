@@ -34,11 +34,16 @@
                                 <i class="bi bi-person-plus">　NewAccount</i>
                             </div>
                         </a>
-                        <a href='/login'>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
                             <div class="m-ms-5">
-                                <i class="bi bi-arrow-counterclockwise">　login</i>
+                                <i class="bi bi-arrow-counterclockwise">　logout</i>
                             </div>
                         </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                         <a href='/posts/create'>
                             <div class="m-ms-5">
                                 <i class="bi bi-plus-square">　NewPost</i>

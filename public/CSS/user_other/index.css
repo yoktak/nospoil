@@ -3,19 +3,8 @@
     margin-left:0;
 }
 
-.edit_profile {
-    text-align: right;
-}
-.edit_profile button {
-    font-weight: normal;
-    margin-top: 10px;
-    padding: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border: solid;
-    border-radius: 25px;
-    border-color: #EEEEEE;
-    background-color: #EEEEEE;
+.profile {
+    margin-top: 50px;    
 }
 
 .following, .followed {
@@ -37,22 +26,6 @@
     padding-right: 10px;
 }
 
-.edit_comic {
-    margin-left: auto;
-}
-.edit_comic button {
-    font-weight: normal;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border: solid;
-    border-radius: 25px;
-    border-color: #EEEEEE;
-    background-color: #EEEEEE;
-}
-
 .myposts h5, .likeposts h5 {
     text-align: center;
 }
@@ -63,12 +36,12 @@
     border-color: #EEEEEE;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding:10px;
 }
 .post {
     background-color: white;
     border: solid;
     border-color: #EEEEEE;
-    border-radius: 10px;
     padding: 10px;
 }
 

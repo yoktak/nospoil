@@ -1,0 +1,62 @@
+.post {
+    border: solid;
+    border-color: #EEEEEE;
+    padding: 10px;
+}
+
+.edit {
+    text-align: right;
+}
+
+.edit button {
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: solid;
+    border-radius: 25px;
+    border-color: #EEEEEE;
+    background-color: #EEEEEE;
+}
+
+.username {
+    color: black;
+    font-weight: bold;
+}
+
+.body {
+    color: black;
+    padding: 10px;
+}
+
+.img img {
+    width: 500px;
+    padding: 10px;
+    border-radius: 25px;
+}
+.px-2 {
+    background-color: #EEEEEE;
+    border: solid;
+    border-color: #EEEEEE;
+    color: #666666;
+    border-radius: 2rem;
+}
+
+.likes button, .create_comment button {
+    color: gray;
+    background-color: white;
+    border: none;
+    padding-top: 30px;
+    padding-right: 50px;
+    padding-left: 30px;
+}
+
+.delete button {
+    color: red;
+    background-color: white;
+    border: none;
+    padding-top: 30px;
+    padding-left: 250px;
+}
