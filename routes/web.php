@@ -53,6 +53,10 @@ Route::group(['middleware' => ['auth']], function(){
     Route::put('/posts/unlike/{post}','LikeController@remove_posts');
 });
 
+Route::get('/', function() {
+    return view('index');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

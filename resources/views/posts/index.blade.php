@@ -1,4 +1,4 @@
-@extends('layouts.sidebar')
+@extends('layouts.app')
 
 @section('content')
 <!DOCTYPE html>
@@ -6,13 +6,18 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <!--bootstrap-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+        <!--cssファイル-->
         <link rel="stylesheet" href="{{ asset('/CSS/posts/index.css') }}">
+        <script src="{{ asset('js/app.js') }}" defer></script>
         <title>投稿一覧ページ</title>
         
     </head>
     <body>
+        <like></like>
         <div class='posts'>
             @foreach ($posts as $post)
                 @foreach (auth()->user()->comics as $comic)
