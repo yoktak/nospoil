@@ -1,4 +1,4 @@
-@extends('layouts.sidebar')
+@extends('layouts.app')
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('/CSS/posts/create.css') }}">

@@ -1,0 +1,64 @@
+body {
+    width: 100%;
+}
+
+.container1 {
+   padding: 0;
+   margin: 0;
+}
+.group {
+    display: flex;
+    position: relative;
+    padding: 150px;
+}
+
+.login_container, .register_container {
+    margin: 20px;
+}
+
+.appname {
+    text-align: center;
+    font-size: 70px;
+    position: absolute;
+    top: 40%;
+    left: 48%;
+}
+
+.userpage {
+    height: 100%;
+    width:100%;
+}
+
+.fluid {
+  width:50vh;/*横幅*/
+  height: 50vh;/*縦幅*/
+  background:#EEEEEE;/*背景色*/
+  animation: fluidrotate 30s ease 0s infinite;/*アニメーションの設定*/
+  right: 20%;
+}
+
+@keyframes fluidrotate {  
+	  
+0%, 100% {
+    border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+}
+14% {
+    border-radius: 40% 60% 54% 46%/49% 60% 40% 51%;
+}
+28% {
+    border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+}
+42% {
+    border-radius: 61% 39% 55% 45%/61% 38% 62% 39%;
+}
+56% {
+    border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+}
+70% {
+    border-radius: 50% 50% 34% 66%/56% 68% 32% 44%;
+}
+84% {
+    border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+}
+	  
+}
