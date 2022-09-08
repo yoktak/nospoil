@@ -6,6 +6,7 @@ use App\Post;
 use App\User;
 use App\Comic;
 use App\Comment;
+use App\Http\Requests\CommentRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,7 +25,7 @@ class CommentController extends Controller
         return view('/comments/create')->with(['post' => $post]);
     }
     
-    public function store(Request $request, User $user, Post $post, Comment $comment)
+    public function store(CommentRequest $request, User $user, Post $post, Comment $comment)
     {
         $input = $request['comment'];
         $input['user_id'] = Auth::id();

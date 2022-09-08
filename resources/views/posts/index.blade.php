@@ -17,7 +17,6 @@
         
     </head>
     <body>
-        <like></like>
         <div class='posts'>
             @foreach ($posts as $post)
                 @foreach (auth()->user()->comics as $comic)
