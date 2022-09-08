@@ -6,9 +6,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
         <link rel="stylesheet" href="{{ asset('/CSS/user/edit_profile.css') }}">
 
-        <title>プロフィール編集画面</title>
+        <title>プロフィール 編集ページ</title>
         
     </head>
     <body>
@@ -21,6 +23,7 @@
             <div class='name'>
                 <h3>User Name</h3>
                 <input type="text" name="user[name]" value="{{ Auth::user()->name }}" placehplder="username" />
+                <p class="name_error" style="color:red">{{ $errors->first('user.name') }}</p>
             </div>
             <div class='profile'>
                 <h3>Who are you doing?</h3>

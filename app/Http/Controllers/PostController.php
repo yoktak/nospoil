@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Http\Requests\PostRequest;
 use App\User;
 use App\Comic;
 use App\Comment;
 use App\Like;
 use Storage;
 
-use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,7 +30,7 @@ class PostController extends Controller
         ]); 
     }
     
-    public function store(Post $post, Request $request)
+    public function store(Post $post, PostRequest $request)
     {
         $input = $request['post'];
         
@@ -61,17 +61,14 @@ class PostController extends Controller
     
     public function edit(Post $post, User $user, Comic $comic)
     {
-        
-        if (Auth::id() == $post->user->id){
             return view('posts/edit')->with([
-                'post' => $post->first(),
+                'post' => $post,
                 'comics' => $comic->get()
                 ]);   
-        }
        
     }
     
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
         $input = $request['post'];
         

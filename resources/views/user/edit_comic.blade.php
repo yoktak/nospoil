@@ -6,8 +6,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
         <link rel="stylesheet" href="{{ asset('/CSS/user/edit_comic.css') }}">
-        <title>プロフィール編集画面</title>
+        <title>Nospoil Comics 編集ページ</title>
         
     </head>
     <body>
@@ -19,10 +21,11 @@
                 @csrf
                 <div class='select_comics'>
                     <h3>select comic</h3>
+                    <p class="title_error" style="color:red">{{ $errors->first('comic_id') }}</p>
                     @foreach($comics as $comic)
                         <label>
                             {{-- valueを'$subjectのid'に、nameを'配列名[]'に --}}
-                            <input type="radio" value="{{ $comic->id }}" name="comic_id">
+                            <input type="radio"　name="comic_id" value="{{ $comic->id }}" {{ old('comic_id') ==  $comic->id ? 'checked' : '' }}>
                                 {{ $comic->title }}
                             </input>
                         </label>
@@ -31,13 +34,15 @@
                 <br>
                 <div class='read_type'>
                     <h3>select type</h3>
-                    <label><input type="radio"  name="type" value='0'>単行本</label>
-                    <label><input type="radio"  name="type" value='1'>週刊誌</label>
+                    <p class="type_error" style="color:red">{{ $errors->first('type') }}</p>
+                    <label><input type="radio"  name="type" value='0' {{ old('type') ==  '0' ? 'checked' : '' }}>単行本</label>
+                    <label><input type="radio"  name="type" value='1' {{ old('type') ==  '1' ? 'checked' : '' }}>週刊誌</label>
                 </div>
                 <br>
                 <div class='episode'>
                     <h3>already read</h3>
-                    <input type='text' name="episode" placeholder="巻数か話数を指定">
+                    <p class="episode_error" style="color:red">{{ $errors->first('episode') }}</p>
+                    <input type='text' name="episode" placeholder="巻数か話数を指定" value='{{ old('episode') }}'>
                 </div>
                 <br>
                 <input type="submit" value="保存"/>
