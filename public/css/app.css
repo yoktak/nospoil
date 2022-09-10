@@ -10979,13 +10979,42 @@ a.text-dark:focus {
 
 .col-3 i {
     color: black;
-    font-size: 30px;
-    padding: 0px;
+    font-size: 20px;
 }
 
-.m-ms-5 {
-    padding: 20px;
+.m-3 a {
+  color: black;
+  border: hidden;
+  border-radius:50px;
+  padding: 10px;
+  padding-left: 20px;
+  display: block;
+  text-decoration: none;
+  margin: 30px;
 }
+
+.m-3 a:hover {
+  text-decoration: none;
+  background-color: #EEEEEE;
+}
+.m-3 i {
+  line-height: 50px;
+}
+
+.nospoil a {
+  font-size: x-large;
+  font-weight: bold;
+  color: black;
+  border: hidden;
+  border-radius:65px;
+  padding: 30px;
+  margin: 20px;
+  margin-bottom: 70px;
+  padding-left: 50px;
+  display: block;
+  text-decoration: none;
+}
+
 
 .navbar {
   position: sticky;
