@@ -39,3 +39,6 @@ button {
     margin-right: 50px;
 }
 
+.active {
+    color: red;
+}

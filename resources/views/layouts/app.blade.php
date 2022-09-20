@@ -42,7 +42,7 @@
                                     </a>
                                 </div>
                                 <div class="m-3">
-                                    <a href=''>
+                                    <a href='/comics'>
                                         <i class="bi bi-book-fill">　Comics</i>
                                     </a>
                                 </div>
