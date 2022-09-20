@@ -47,10 +47,14 @@ Route::group(['middleware' => ['auth']], function(){
     
     
     //いいね機能
+    Route::post('/like', 'LikeController@store_posts');
     Route::post('/like/{post}', 'LikeController@store_show');
     Route::put('/unlike/{post}', 'LikeController@remove_show');
     Route::post('/posts/like/{post}','LikeController@store_posts');
     Route::put('/posts/unlike/{post}','LikeController@remove_posts');
+    
+    // comics一覧
+    Route::get('/comics','ComicController@index');
 });
 
 Route::get('/', function() {
