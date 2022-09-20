@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.sidebar')
 
 @section('content')
 <!DOCTYPE html>
@@ -8,14 +8,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="{{ asset('/CSS/posts/create.css') }}">
-
+        <link rel="stylesheet" href="{{ asset('/CSS/posts/show.css') }}">
         <title>ユーザーページ</title>
         
     </head>
     <body>
-        <link rel="stylesheet" href="{{ asset('/CSS/posts/show.css') }}">
-        
         <div class='post'>
             <div class='edit'>
                 @if(Auth::id() == $post->user->id)
@@ -71,27 +68,20 @@
                     <form action = "/posts/unlike/{{ $post->id }}" method='POST'>
                     @csrf
                     @method('PUT')
+                    <input type='hidden' name='post_id' value='{{ $post->id }}'/>
+                        <button type='submit' name='like' value='{{ $post->likes->count() }}'>
+                            <i class="bi bi-heart active" ></i>
                 @else
                     <form action = "/posts/like/{{ $post->id }}" method="POST">
                     @csrf
-                @endif
-                        <input type='hidden' name='post_id' value='{{ $post->id }}'/>
+                    <input type='hidden' name='post_id' value='{{ $post->id }}'/>
                         <button type='submit' name='like' value='{{ $post->likes->count() }}'>
                             <i class="bi bi-heart" ></i>
+                @endif
                             <h11>{{ $post->likes->count() }}</h11>
                         </button>
                     </form>
-                </div>
-                <div class='delete'>
-                    @if(Auth::id() == $post->user->id)
-                        <form action="/delete/{{ $post->id }}" method="post" style="display:inline">
-                            @csrf
-                            <button type="submit">
-                                <i class="bi bi-trash"></i>
-                            </button> 
-                        </form>
-                    @endif
-                </div>
+                    </div>
             </div>
         </div>
         <div class='comments'>

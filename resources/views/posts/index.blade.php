@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.sidebar')
 
 @section('content')
 <!DOCTYPE html>
@@ -13,6 +13,7 @@
         <!--cssファイル-->
         <link rel="stylesheet" href="{{ asset('/CSS/posts/index.css') }}">
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/like.js') }}" defer></script>
         <title>投稿一覧ページ</title>
         
     </head>
@@ -69,13 +70,16 @@
                                     <form action = "/posts/unlike/{{ $post->id }}" method='POST'>
                                     @csrf
                                     @method('PUT')
+                                    <input type='hidden' name='post_id' value='{{ $post->id }}'/>
+                                        <button type='submit' name='like' value='{{ $post->likes->count() }}'>
+                                            <i class="bi bi-heart active" ></i>
                                 @else
                                     <form action = "/posts/like/{{ $post->id }}" method="POST">
                                     @csrf
-                                @endif
-                                        <input type='hidden' name='post_id' value='{{ $post->id }}'/>
+                                    <input type='hidden' name='post_id' value='{{ $post->id }}'/>
                                         <button type='submit' name='like' value='{{ $post->likes->count() }}'>
                                             <i class="bi bi-heart" ></i>
+                                @endif
                                             <h11>{{ $post->likes->count() }}</h11>
                                         </button>
                                     </form>

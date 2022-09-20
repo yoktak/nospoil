@@ -24,41 +24,43 @@
                     <div class="row">
                         <div class="col-3 sticky-top vh-100 side">
                             <div class='sidebar_fixed'>
-                                <a href=''>
-                                    <div class="m-ms-5">
-                                        <h2><i class="bi bi-book-fill">　Nospoil</i></h2>
-                                    </div>
-                                </a>
-                                <a href='/posts'>
-                                    <div class="m-ms-5">
+                                <div class="m-3">
+                                    <span class='nospoil'>
+                                        <a href=''>
+                                            Nospoil
+                                        </a>
+                                    </span>
+                                </div>
+                                <div class="m-3">
+                                    <a href='/posts'>
                                         <i class="bi bi-house-door">　Home</i>
-                                    </div>
-                                </a>
-                                <a href='/user'>
-                                    <div class="m-ms-5">
+                                    </a>
+                                </div>
+                                <div class="m-3">
+                                    <a href='/user'>
                                         <i class="bi bi-person-fill">　Profile</i>
-                                    </div>
-                                </a>
-                                <a href=''>
-                                    <div class="m-ms-5">
-                                        <i class="bi bi-person-plus">　NewAccount</i>
-                                    </div>
-                                </a>
-                                <a href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
+                                    </a>
+                                </div>
+                                <div class="m-3">
+                                    <a href='/comics'>
+                                        <i class="bi bi-book-fill">　Comics</i>
+                                    </a>
+                                </div>
+                                <div class="m-3">
+                                    <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                    <div class="m-ms-5">
                                         <i class="bi bi-arrow-counterclockwise">　logout</i>
-                                    </div>
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
-                                </form>
-                                <a href='/posts/create'>
-                                    <div class="m-ms-5">
+                                    </form>
+                                </div>
+                                <div class="m-3">
+                                    <a href='/posts/create'>
                                         <i class="bi bi-plus-square">　NewPost</i>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-9">
