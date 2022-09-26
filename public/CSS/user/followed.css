@@ -1,0 +1,21 @@
+.pagename h2 {
+    padding: 10px;
+}
+
+.lists {
+    
+}
+
+li {
+    list-style: none;
+    font-size: large;
+    padding: 15px;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
