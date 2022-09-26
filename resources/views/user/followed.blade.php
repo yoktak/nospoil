@@ -1,4 +1,4 @@
-@extends('layout.sidebar')
+@extends('layouts.sidebar')
 
 @section('content')
 <!DOCTYPE html>
@@ -14,14 +14,16 @@
     </head>
     <body>
         <div class='followed'>
-            <h1>Followed</h1>
+            <div class='pagename'>
+                <h2><i class="bi bi-arrow-left" onclick="location.href='/user'"></i>　Followed</h2>
+            </div>
         </div>
         <div class='lists'>
             @foreach(auth()->user()->followed as $followed)
-            <li>
-                <a href='/user/{{ $followed->id }}'>{{ $followed->name }}</a>
-            </li>
-        @endforeach
+                <li>
+                    <a href='/user/{{ $followed->id }}'>{{ $followed->name }}</a>
+                </li>
+            @endforeach
         </div>
     </body>
 </html>

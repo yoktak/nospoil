@@ -14,7 +14,9 @@
     </head>
     <body>
         <div class='following'>
-            <h1>Following</h1>
+            <div class='pagename'>
+                <h2><i class="bi bi-arrow-left" onclick="location.href='/user'"></i>　Following</h2>
+            </div>
         </div>
         <div class='lists'>
             @foreach(auth()->user()->follows as $follow)
