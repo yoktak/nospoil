@@ -20,7 +20,7 @@ class PostController extends Controller
         $comicAuth = Auth::user()->comics;
         return view('posts/index')->with([
             'posts' => $post->get(),
-            'comics' => $comicAuth->get()
+            'comics' => $comicAuth
         ]);
     }
     
