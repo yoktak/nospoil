@@ -58,30 +58,16 @@
             </div>
             <div class='d-flex flex-row'>
                 <div class='create_comment'>
-                    <button onclick="location.href='/posts/{{ $post->id }}/comments/create'">
-                        <i class="bi bi-chat-square"></i>
-                        <h11>{{ $post->comments->count() }}</h11>
-                    </button>
+                    <i class="bi bi-chat-square-fill" type='button' onclick="location.href='/posts/{{ $post->id }}/comments/create'">
+                        {{ $post->comments->count() }}
+                    </i>
                 </div>
-                <div class='likes'>
-                @if($post->likes()->where('user_id', Auth::id())->where('post_id', $post->id)->exists())
-                    <form action = "/posts/unlike/{{ $post->id }}" method='POST'>
-                    @csrf
-                    @method('PUT')
-                    <input type='hidden' name='post_id' value='{{ $post->id }}'/>
-                        <button type='submit' name='like' value='{{ $post->likes->count() }}'>
-                            <i class="bi bi-heart active" ></i>
-                @else
-                    <form action = "/posts/like/{{ $post->id }}" method="POST">
-                    @csrf
-                    <input type='hidden' name='post_id' value='{{ $post->id }}'/>
-                        <button type='submit' name='like' value='{{ $post->likes->count() }}'>
-                            <i class="bi bi-heart" ></i>
-                @endif
-                            <h11>{{ $post->likes->count() }}</h11>
-                        </button>
-                    </form>
-                    </div>
+                <like 
+                    :post-id = "{{ json_encode($post->id) }}"
+                    :user-id = "{{ json_encode($userAuth->id) }}"
+                    :default-Liked ="{{ json_encode($defaultLiked) }}"
+                    :default-Count ="{{ json_encode($defaultCount) }}"
+                ></like>
             </div>
         </div>
         <div class='comments'>

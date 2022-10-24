@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Http\Requests\UserRequest;
 use App\Comic;
-use App\Http\Requests\ComicRequest;
 use App\ComicUser;
 use App\Post;
 use App\Follow;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -55,7 +54,7 @@ class UserController extends Controller
          
     }
     
-    public function update_comic(ComicRequest $request, Comic $comic)
+    public function update_comic(Request $request, Comic $comic)
     {   
         $input_comics = $request->comic_id;  
         $input_type = $request->type;

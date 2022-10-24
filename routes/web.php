@@ -43,13 +43,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/followed_list', 'FollowController@followed_list');
     Route::post('/follow', 'FollowController@store');
     Route::put('/remove', 'FollowController@remove');
-    
-    
-    
     //いいね機能
-    Route::post('/like', 'LikeController@store_posts');
-    Route::post('/like/{post}', 'LikeController@store_show');
-    Route::put('/unlike/{post}', 'LikeController@remove_show');
     Route::post('/posts/like/{post}','LikeController@store_posts');
     Route::put('/posts/unlike/{post}','LikeController@remove_posts');
     
