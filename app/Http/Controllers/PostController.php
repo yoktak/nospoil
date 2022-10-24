@@ -17,10 +17,14 @@ class PostController extends Controller
 {
     public function index(Post $post, User $user)
     {
+        $comicAuth = Auth::user()->comics;
         return view('posts/index')->with([
-            'posts' => $post->get()
-            ]);
+            'posts' => $post->get(),
+            'comics' => $comicAuth->get()
+        ]);
     }
+    
+    
     
     public function create(User $user, Comic $comic)
     {
@@ -51,10 +55,21 @@ class PostController extends Controller
     
     public function show(Post $post, Comment $comment)
     {
-        $like = Like::where('user_id', Auth::id())->where('post_id', $post->id)->first();
+        $userAuth = Auth::user();
+        $defaultLiked = Like::where('user_id', $userAuth->id)->where('post_id', $post->id)->first();
+        //いいねしたかどうか判別
+        if ($defaultLiked == null) {
+            $defaultLiked = false;
+        }
+        else {
+            $defaultLiked = true;
+        }
+        $defaultCount = $post->likes()->count();
         return view('posts/show')->with([
             'post' => $post,
-            'like' => $like,
+            'userAuth' => $userAuth,
+            'defaultLiked' => $defaultLiked,
+            'defaultCount' => $defaultCount,
             'comments' => Comment::where('post_id', $post->id)->get()
         ]);
     }

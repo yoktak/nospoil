@@ -13,14 +13,13 @@
         <!--cssファイル-->
         <link rel="stylesheet" href="{{ asset('/CSS/posts/index.css') }}">
         <script src="{{ asset('js/app.js') }}" defer></script>
-        <script src="{{ asset('js/like.js') }}" defer></script>
         <title>投稿一覧ページ</title>
         
     </head>
     <body>
         <div class='posts'>
             @foreach ($posts as $post)
-                @foreach (auth()->user()->comics as $comic)
+                @foreach ($comics as $comic)
                     @if($comic->id===$post->comic->id &&
                         $comic->pivot->type===$post->type &&
                         $comic->pivot->episode>=$post->episode)
