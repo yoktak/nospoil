@@ -52,14 +52,6 @@
     color: gray;
 }
 
-.delete button {
-    color: red;
-    background-color: white;
-    border: none;
-    padding-top: 30px;
-    padding-left: 250px;
-}
-
 /*コメント一覧*/
 .comment {
     border: solid;
