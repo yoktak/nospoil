@@ -68,6 +68,11 @@
                     :default-Liked ="{{ json_encode($defaultLiked) }}"
                     :default-Count ="{{ json_encode($defaultCount) }}"
                 ></like>
+                <div class='delete'>
+                @if(Auth::id() == $post->user->id)
+                    <i class="bi bi-trash3-fill" type='button' onclick="location.href='/delete/{{ $post->id }}'"></i>
+                @endif
+                </div>
             </div>
         </div>
         <div class='comments'>

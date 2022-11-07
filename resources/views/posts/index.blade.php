@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
         <!--cssファイル-->
         <link rel="stylesheet" href="{{ asset('/CSS/posts/index.css') }}">
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ mix('js/app.js') }}" defer></script>
         <title>投稿一覧ページ</title>
         
     </head>
