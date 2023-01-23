@@ -25,7 +25,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/posts/{post}/edit', 'PostController@edit');
     Route::put('/posts/{post}', 'PostController@update');
     Route::get('/posts/{post}', 'PostController@show');
-    Route::post('/delete/{post}','PostController@delete');
+    Route::get('/delete/{post}','PostController@delete');
     
     
     // ユーザーページ編集機能

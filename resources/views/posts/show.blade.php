@@ -70,7 +70,10 @@
                 ></like>
                 <div class='delete'>
                 @if(Auth::id() == $post->user->id)
-                    <i class="bi bi-trash3-fill" type='button' onclick="location.href='/delete/{{ $post->id }}'"></i>
+                    <form action="/delete/{{ $post->id }}" method="GET" style="display:inline">
+                        @csrf
+                        <i class="bi bi-trash3-fill" type='submit' onclick="location.href='/delete/{{ $post->id }}'"></i>
+                    </form>
                 @endif
                 </div>
             </div>
